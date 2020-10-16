@@ -9,58 +9,86 @@
 </head>
 <body>
  <main> 
-    <div class="flash-card-parent">
+    <div class="flash-card-container">
   
-        <div class="flash-card-child">
-            <div><img src="./images/Balasana1.png" height="250px" width="250px" alt="Balasana"></div>
-            <div>Balasana</div>
+        <div class="flash-card-parent">
+            <div class="flash-card-child">
+                 <div><img src="./images/Balasana1.png" height="250px" width="250px" alt="Balasana"></div>
+                 <div>Balasana</div>
+        </div>
+    </div>
+
+        <div class="flash-card-parent">
+             <div id="bharachair" class="flash-card-child">
+                <div><img src="./images/Bharadavajasana-chair1.png" height="250px" width="250px" alt="Bhara"></div>
+                <div>Bharadvajasana Chair</div>
+             </div>
         </div>
 
-        <div id="bharachair" class="flash-card-child">
-            <div><img src="./images/Bharadavajasana-chair1.png" height="250px" width="250px" alt="Bhara"></div>
-            <div>Bharadvajasana Chair</div>
+        <div class="flash-card-parent">
+             <div id="bhara" class="flash-card-child">
+                 <div><img src="./images/Bharadvajasana.png" height="250px" width="250px" alt="learn your poses!"></div>
+                 <div>Bharadvajasana</div>
+             </div>
         </div>
 
-        <div id="bhara" class="flash-card-child">
-            <div><img src="./images/Bharadvajasana.png" height="250px" width="250px" alt="learn your poses!"></div>
-            <div>Bharadvajasana</div>
+        <div class="flash-card-parent">
+            <div id="garudasana" class="flash-card-child">
+                 <div><img src="./images/Garudasana1.png" height="250px" width="250px" alt="learn your poses!"></div>
+                 <div>Garudasana</div>
+            </div>
         </div>
 
-        <div id="garudasana" class="flash-card-child">
-            <div><img src="./images/Garudasana1.png" height="250px" width="250px" alt="learn your poses!"></div>
-            <div>Garudasana</div>
+        <div class="flash-card-parent">
+            <div id="half-moon" class="flash-card-child">
+                <div><img src="./images/half-moon.png" height="250px" width="250px" alt="learn your poses!"></div>
+                <div>Ardha Chandrasana</div>
+             </div>
+        </div>
+        
+        <div class="flash-card-parent">
+            <div id="mari" class="flash-card-child">
+                    <div><img src="./images/Marichyasana-3.png"height="250px" width="250px" alt=" learn your poses!"></div>
+                    <div>Marichyasana</div>
+            </div>
         </div>
 
-        <div id="half-moon" class="flash-card-child">
-            <div><img src="./images/half-moon.png" height="250px" width="250px" alt="learn your poses!"></div>
-            <div>Ardha Chandrasana</div>
-        </div>
+        <div class="flash-card-parent">
+            <div id="sarvangasana" class="flash-card-child">
+                 <div><img src="./images/salamba-sarvangasana.png" height="250px" width="250px" alt="learn your poses!"></div>
+                 <div>Salamba Sarvangasana</div>
+            </div>
+     </div>
 
-        <div id="mari" class="flash-card-child">
-            <div><img src="./images/Marichyasana-3.png"height="250px" width="250px" alt=" learn your poses!"></div>
-            <div>Marichyasana</div>
-        </div>
+     <div class="flash-card-parent">
+            <div id="upavishta" class="flash-card-child">
+                <div><img src="./images/upavishta-konasana.png" height="250px" width="250px" alt=" learn your poses!"></div>
+                <div>Upavishta Konasana</div>
+            </div>
+     </div>
 
-        <div id="sarvangasana" class="flash-card-child">
-            <div><img src="./images/salamba-sarvangasana.png" height="250px" width="250px" alt="learn your poses!"></div>
-            <div>Salamba Sarvangasana</div>
-        </div>
-
-        <div id="upavishta" class="flash-card-child">
-            <div><img src="./images/upavishta-konasana.png" height="250px" width="250px" alt=" learn your poses!"></div>
-            <div>Upavishta Konasana</div>
-        </div>
-
+     <div class="flash-card-parent">
         <div id="urdhva" class="flash-card-child">
             <div><img src="./images/Urdhva-Mukha-Svanasana.png" height="250px" width="250px" alt=" learn your poses!"></div>
             <div>Urdva Mukha Svanasana</div>
-        </div>  
-        
+        </div>   
      </div>
+
         <div id="button-container">
             <button id="next-page>">Next</button>
         </div>
 
     </main>  
+
+    <script>
+        document.body.addEventListener('click',function(e) {
+            console.log(e.target.closest('.flash-card-parent'))
+            const flashCardParent = e.target.closest('.flash-card-parent')
+            if (flashCardParent) {
+                flashCardParent.classList.toggle('flipped')
+            }
+        })
+
+    </script>
 </body>
 </html>
