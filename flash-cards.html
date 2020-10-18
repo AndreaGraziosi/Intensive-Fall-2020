@@ -8,8 +8,11 @@
     
 </head>
 <body>
+    <p id="demo">Study your poses</p>
  <main> 
-    <div class="flash-card-container">
+    <div class="flash-card-container droptarget"
+          ondrop="drop(event)"
+          ondragover="allowDrop(event)">
   
         <div class="flash-card-parent">
             <div class="flash-card-child">
@@ -18,65 +21,98 @@
         </div>
     </div>
 
-        <div class="flash-card-parent">
+        <div class="flash-card-parent"
+             ondragstart="dragStart(event)"
+             draggable="true"
+             id="dragtarget">
+
              <div id="bharachair" class="flash-card-child">
                 <div><img src="./images/Bharadavajasana-chair1.png" height="250px" width="250px" alt="Bhara"></div>
                 <div>Bharadvajasana Chair</div>
              </div>
         </div>
 
-        <div class="flash-card-parent">
+        <div class="flash-card-parent"
+             ondragstart="dragStart(event)"
+             draggable="true"
+             id="dragtarget">
+
              <div id="bhara" class="flash-card-child">
                  <div><img src="./images/Bharadvajasana.png" height="250px" width="250px" alt="learn your poses!"></div>
                  <div>Bharadvajasana</div>
              </div>
         </div>
 
-        <div class="flash-card-parent">
+        <div class="flash-card-parent" 
+             ondragstart="dragStart(event)"
+             draggable="true"
+             id="dragtarget">
+
             <div id="garudasana" class="flash-card-child">
                  <div><img src="./images/Garudasana1.png" height="250px" width="250px" alt="learn your poses!"></div>
                  <div>Garudasana</div>
             </div>
         </div>
 
-        <div class="flash-card-parent">
-            <div id="half-moon" class="flash-card-child">
-                <div><img src="./images/half-moon.png" height="250px" width="250px" alt="learn your poses!"></div>
-                <div>Ardha Chandrasana</div>
-             </div>
-        </div>
+       
         
-        <div class="flash-card-parent">
+        <div class="flash-card-parent"
+             ondragstart="dragStart(event)"
+             draggable="true"
+             id="dragtarget">
+
             <div id="mari" class="flash-card-child">
                     <div><img src="./images/Marichyasana-3.png"height="250px" width="250px" alt=" learn your poses!"></div>
                     <div>Marichyasana</div>
             </div>
         </div>
 
-        <div class="flash-card-parent">
+        <div class="flash-card-parent"
+             ondragstart="dragStart(event)"
+             draggable="true"
+             id="dragtarget">
+
             <div id="sarvangasana" class="flash-card-child">
                  <div><img src="./images/salamba-sarvangasana.png" height="250px" width="250px" alt="learn your poses!"></div>
                  <div>Salamba Sarvangasana</div>
             </div>
      </div>
 
-     <div class="flash-card-parent">
+     <div class="flash-card-parent"
+          ondragstart="dragStart(event)"
+          draggable="true"
+          id="dragtarget">
+
             <div id="upavishta" class="flash-card-child">
                 <div><img src="./images/upavishta-konasana.png" height="250px" width="250px" alt=" learn your poses!"></div>
                 <div>Upavishta Konasana</div>
             </div>
      </div>
 
-     <div class="flash-card-parent">
+     <div class="flash-card-parent"
+          ondragstart="dragStart(event)"
+          draggable="true"
+          id="dragtarget">
+
         <div id="urdhva" class="flash-card-child">
             <div><img src="./images/Urdhva-Mukha-Svanasana.png" height="250px" width="250px" alt=" learn your poses!"></div>
             <div>Urdva Mukha Svanasana</div>
         </div>   
      </div>
 
-        <div id="button-container">
-            <button id="next-page>">Next</button>
+    </div> 
+
+        <div
+        class="flash-card-container droptarget" 
+        ondrop="drop(event)" 
+        ondragover="allowDrop(event)">
+        Drag and drop here
         </div>
+        
+
+        <!-- <div id="button-container">
+            <button id="next-page>">Next</button>
+        </div> -->
 
     </main>  
 
@@ -88,6 +124,26 @@
                 flashCardParent.classList.toggle('flipped')
             }
         })
+
+        function dragStart(event) {
+            event.dataTransfer.setData("Text",event.target.id);
+            draggable = event.target.closest('.flash-card-parent')
+            console.log('draggable:', draggable)
+            document.getElementById("demo").innerHTML = "Choose your poses for today's practice";
+
+        }
+
+        function allowDrop(event) {
+            event.preventDefault();
+        }
+
+        function drop(event) {
+            event.preventDefault();
+            console.log(event.target)
+            event.target.appendChild(draggable);
+            document.getElementById("demo").innerHTML = "Drop them on the Side Bar";
+        
+        }
 
     </script>
 </body>
