@@ -33,6 +33,6 @@ Yoga will help yoga students take notes, study, and come up with a schedule for 
           ** Savasana**
 hari om
 
-![wireframe](https://github.com/AndreaGraziosi/Intensive-Fall-2020/images/Screen Shot 2020-10-17 at 2.49.27 PM.png)
+![wireframe](./Screen Shot 2020-10-17 at 2.49.27 PM.png)
 
 

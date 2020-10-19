@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="flash-cards.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>yoga flash cards</title>
+    <title>yoga flash cards and drag</title>
     
 </head>
 <body>
@@ -120,6 +120,7 @@
     </main>  
 
     <script>
+        // card flipping function
         document.body.addEventListener('click',function(e) {
             console.log(e.target.closest('.flash-card-parent'))
             const flashCardParent = e.target.closest('.flash-card-parent')
@@ -127,7 +128,7 @@
                 flashCardParent.classList.toggle('flipped')
             }
         })
-
+// 3 functions to make the drag work
         function dragStart(event) {
             event.dataTransfer.setData("Text",event.target.id);
             draggable = event.target.closest('.flash-card-parent')
