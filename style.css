@@ -1,21 +1,18 @@
-body, html {
-    height:100%;
-}
-
-
 main {
     display:flex;
     flex-direction: row;
 }
+
 .flash-card-container {
-    width: 1000px;
-    height: 1500px;
+    width: 350px;
+    height: 400px;
     display:flex;
     flex-direction: column;
     border-style: solid;
     flex-wrap: wrap;
     justify-content: space-around;
     margin: 1em;
+
 
 }
 .flash-card-child {
@@ -62,8 +59,8 @@ main {
     border: 3px solid;
     height: 100%;
     background-color: #eee;
-    width: 800px;
-    height: 1500px;
+    width: 350px;
+    height: 400px;
 
 }
 
@@ -75,23 +72,3 @@ main {
 .container > div {
     width: 50%;
 }
-
-
-/* button {
-    color: #1d1a18;
-    background-color: olivedrab;
-    padding: .15em;
-    margin: .5em;
-    width: 100px;
-    height: 25px;
-    border: none;
-    border-radius: 2px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
- #button-container {
-     border-style: solid;
-     
-     display:flex;
-     justify-content: flex-end;
-     width: 1000px;
- } */

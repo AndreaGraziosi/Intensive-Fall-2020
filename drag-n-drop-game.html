@@ -11,21 +11,21 @@
    <div class="outerdiv">
     <div class="shapes-container">
 <!-------circle------------------------------------------>
-        <div class="shape-parent"
+        <div class="shape-parent" data-shape="circle"
             ondragstart="dragStartCircle(event)"
             draggable="true"
             id="dragtarget">
                 <div class="circle"></div>
         </div>
 <!----square------------------------------------------->
-        <div class="shape-parent"
+        <div class="shape-parent" data-shape="square"
              ondragstart="dragStart(event)"
              draggable="true"
              id="dragtarget">
             <div class="square"></div>
         </div>
 <!----------------triagnle-------------------------------->
-        <div class="shape-parent"
+        <div class="shape-parent" data-shape="triangle"
             ondragstart="dragStartTriangle(event)"
             draggable="true"
             id="dragtarget">
@@ -38,7 +38,7 @@
 
     <div class="drop-shapes-container">
 <!-----------------------square drop----------------------------------->
-        <div id="square"
+        <div id="square" data-shape="square" class="drop-shape"
         ondrop="drop(event)"
         ondragover="allowDrop(event)">
             <div class="square2">
@@ -47,7 +47,7 @@
             <p id="square-message">What shape is this?</p>
         </div>
 <!-----------------------triangle----------------------------------->
-        <div id="triangle"
+        <div id="triangle" data-shape="triangle"
             ondrop="dropTriangle(event)"
             ondragover="allowDropTriangle(event)">
             <div class="triangle-up2"></div>
@@ -55,7 +55,7 @@
         </div>
 
  <!----------------circle drop------------------------------------------>       
-        <div id="circle"
+        <div id="circle" data-shape="circle"
             ondrop="dropCircle(event)"
             ondragover="allowDropCircle(event)">
             
@@ -83,16 +83,23 @@ function allowDrop(event) {
 
 function drop(event) {
     event.preventDefault();
-    console.log(event.target)
+    console.log("*******")
     event.target.appendChild(draggable);
+    console.log(event.target.closest(".drop-shape").dataset.shape, draggable.dataset.shape)
+   if (event.target.closest(".drop-shape").dataset.shape === draggable.dataset.shape) {
     document.getElementById("square-message").innerHTML = "YAY !"
+   }
+   else {
+    document.getElementById("square-message").innerHTML = "OH NO !"
+   }
+    
 }
 
 //circle
 function dragStartCircle(event) {
     event.dataTransfer.setData("Text",event.target.id);
-    draggableCircle = event.target.closest(".shape-parent")
-    console.log("draggableCircle", draggableCircle)
+    draggable = event.target.closest(".shape-parent")
+    console.log("draggable", draggable)
     document.getElementById("circle-message").innerHTML = "C I R C L E !"
 
 }
@@ -104,7 +111,7 @@ function allowDropCircle(event) {
 function dropCircle(event) {
     event.preventDefault();
     console.log(event.target)
-    event.target.appendChild(draggableCircle);
+    event.target.appendChild(draggable);
     document.getElementById("circle-message").innerHTML = "YAY !"
 }
 
@@ -113,7 +120,7 @@ function dropCircle(event) {
 function dragStartTriangle(event) {
     event.dataTransfer.setData("Text",event.target.id);
     draggableTriangle = event.target.closest(".shape-parent")
-    console.log("draggableTriangle", draggableTriangle)
+    console.log("draggable", draggable)
     document.getElementById("triangle-message").innerHTML = "T R I A N G L E !"
 
 }
@@ -125,30 +132,12 @@ function allowDropTriangle(event) {
 function dropTriangle(event) {
     event.preventDefault();
     console.log(event.target)
-    event.target.appendChild(draggableTriangle);
+    event.target.appendChild(draggable);
     document.getElementById("triangle-message").innerHTML = "YAY !"
 }
 
 
-
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   
 </body>
 </html>

@@ -3,76 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
-
-
-
 <body>
-    <div id="flash-card-parent"></div>
+  <main>  
+    <p id="demo">Study your poses</p>
   
-        <div id="balasana" class="flash-card-child">
-            <button type="button" onclick="flashCards()">Set background image</button>
-        </div>
-        
-        <div id="balasana" class="flash-card-child">
-            <button type="button" onclick="flashCards()">Balasana</button>
-        </div>
-        <div id="bharachair" class="flash-card-child">
-            <button type="button" onclick="flashCards()">Bharadavajasana-chair</button>
-        </div>
-        <div id="bhara" class="flash-card-child">
-            <button type="button" onclick="flashCards()">Bharadvajasana</button>
-        </div>
-        <div id="garudasana" class="flash-card-child">
-            <button type="button" onclick="flashCards()">Garudasana</button>
-        </div>
-        <div id="half-moon" class="flash-card-child">
-            <button type="button" onclick="flashCards()">Ardha Chandrasana</button>
-        </div>
-        <div id="mari" class="flash-card-child">
-            <button type="button" onclick="flashCards()">Marichyasana</button>
-        </div>
-        <div id="sarvangasana" class="flash-card-child">
-            <button type="button" onclick="flashCards()">salamba-sarvangasana</button>
-        </div>
-        <div id="upavishta" class="flash-card-child">
-            <button type="button" onclick="flashCards()">upavishta-konasana</button>
-        </div>
-        <div id="urdhva" class="flash-card-child">
-            <button type="button" onclick="flashCards()">urdhva</button>
-        </div>
+         <div class="flash-card-container droptarget"
+          ondrop="drop(event)"
+          ondragover="allowDrop(event)">
+  
+
+            <div class="flash-card-parent"
+                ondragstart="dragStart(event)"
+                draggable="true"
+                id="dragtarget">
+
+                <div id="urdhva" class="flash-card-child">
+                    <div><img src="./images/Urdhva-Mukha-Svanasana.png" height="250px" width="250px" alt=" learn your poses!"></div>
+                    <div>Urdva Mukha Svanasana</div>
+                </div>   
+            </div>
+
+         </div>
+        <div
+            class="flash-card-container droptarget" 
+            ondrop="drop(event)" 
+            ondragover="allowDrop(event)">
+                    Drag and drop here
        
-    </div>
+        </div>
+  </main>      
+        <script>
+                document.body.addEventListener('click',function(e) {
+            console.log(e.target.closest('.flash-card-parent'))
+            const flashCardParent = e.target.closest('.flash-card-parent')
+            if (flashCardParent) {
+                flashCardParent.classList.toggle('flipped')
+            }
+        })
 
-    <div id="go-to-next-page">
-        <button id="next-page>">Next</button>
-    </div>
+        function dragStart(event) {
+            event.dataTransfer.setData("Text",event.target.id);
+            draggable = event.target.closest('.flash-card-parent')
+            console.log('draggable:', draggable)
+            document.getElementById("demo").innerHTML = "Choose your poses for today's practice";
 
-<script>
-function flashCards() {
-  document.getElementById("balasana").style.backgroundImage = "url('Intensive-Fall-2020/images/Balasana1.png')";
-  document.getElementById("bharachair").style.backgroundImage = "url('Intensive-Fall-2020/images/Bharadavajasana-chair1.png')";
-  document.getElementById("bhara").style.backgroundImage = "url('Intensive-Fall-2020/images/Bharadvajasana.png')";
-  document.getElementById("garudasana").style.backgroundImage = "url('Intensive-Fall-2020/images/Garudasana1.png')";
-  document.getElementById("half-moon").style.backgroundImage = "url('Intensive-Fall-2020/images/half-moon.png')";
-  document.getElementById("mari").style.backgroundImage = "url('Intensive-Fall-2020/images/Marichyasana-3.png')";
-  document.getElementById("sarvangasana").style.backgroundImage = "url('Intensive-Fall-2020/images/salamba-sarvangasana.png')";
-  document.getElementById("upavishta").style.backgroundImage = "url('Intensive-Fall-2020/images/upavishta-konasana.png')";
-  document.getElementById("urdhva").style.backgroundImage = "url('Intensive-Fall-2020/images/Urdhva-Mukha-Svanasana.png')";
+        }
 
-}
+        function allowDrop(event) {
+            event.preventDefault();
+        }
 
-</script>
-
-
-
-
-
-
-
-
-
-   
+        function drop(event) {
+            event.preventDefault();
+            console.log(event.target)
+            event.target.appendChild(draggable);
+            document.getElementById("demo").innerHTML = "Drop them on the Side Bar";
+        }
+        </script>
 </body>
+
 </html>
