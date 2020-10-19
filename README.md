@@ -39,6 +39,6 @@ Css and Java Script was used to build the flipping aspect of the flash cards
 Java Script used to build the drag and drop component of the code
 
 Here is a shot of the Wireframe 
-![wireframe](https://github.com/AndreaGraziosi/Intensive-Fall-2020/blob/main/images/Screen Shot 2020-10-17 at 2.49.27 PM.png)
+![wireframe](https://github.com/AndreaGraziosi/Intensive-Fall-2020/blob/main/images/wireframe.png)
 
 
