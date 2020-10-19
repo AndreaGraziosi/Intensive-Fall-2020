@@ -128,7 +128,7 @@
                 flashCardParent.classList.toggle('flipped')
             }
         })
-// 3 functions to make the drag work
+// 3 functions to make the drag work Drag starts allow the object to be dropped in this div and be picked up by this div
         function dragStart(event) {
             event.dataTransfer.setData("Text",event.target.id);
             draggable = event.target.closest('.flash-card-parent')
@@ -140,7 +140,7 @@
         function allowDrop(event) {
             event.preventDefault();
         }
-
+//this function allows for the drop and it appends the child element of the div we drag
         function drop(event) {
             event.preventDefault();
             console.log(event.target)
